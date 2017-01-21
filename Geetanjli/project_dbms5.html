@@ -1,0 +1,137 @@
+<html>
+<style>
+html
+{
+background:url("blurred_golden_background_192849.jpg")no-repeat center center fixed;
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;
+}
+ul.tab 
+    {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	border:10px rounded #ccc;
+    background-color: #f1f1f1;
+	}
+/* Float the list items side by side */
+ul.tab li 
+{
+float: center;
+display:inline;
+}
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+/* Change background color of links on hover */
+ul.tab li a:hover
+{
+    background-color: #ddd;
+}
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active
+{
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent 
+{
+    display: inline;
+    padding: 9px 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+ul li .pager{
+border-style:10px solid black;
+font-size:100px;
+}
+.topright
+{
+	float: right;
+	cursor: pointer;
+	font-size: 100px;
+}
+.topright:hover {color: red;}
+</style>
+<body>
+<nav class="w3-sidenav w3-black" style="width:70px">
+<a class="w3-padding-16" href="#"><i class="fa fa-home w3-xxlarge"></i></a>
+<a class="w3-padding-16" href="#"><i class="fa fa-search w3-xxlarge"></i></a>
+</nav>
+<p><center><b><font face="Brush Script MT"size='100px'>BOOK MY SHOW</font></b></center></p>
+
+<ul class="tab"><center>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '20April')" id="defaultOpen">20April</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '21April')">21April</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '22April')">22April</a></li>
+ <ul class="pager">
+  <li><a href="tab1.html">Previous</a></li>
+  <li><a href="tab1.html">Next</a></li>
+ </ul>
+</ul>
+
+<div id="20April" class="tabcontent">
+<form>
+<input type="radio" value="9am-12pm" name="radio" selected>9am-12pm<br>
+<input type="radio" value="2pm-5pm"name="radio">2pm-5pm<br>
+<input type="radio" value="6pm-9pm"name="radio">6pm-9pm<br>
+<input type="radio" value="10pm-1am"name="radio">10pm-2am<br>
+</form>
+</div>
+
+<div id="21April" class="tabcontent">
+  
+<form>
+<input type="radio" value="9am-12pm" name="radio" selected>9am-12pm<br>
+<input type="radio" value="2pm-5pm"name="radio">2pm-5pm<br>
+<input type="radio" value="6pm-9pm"name="radio">6pm-9pm<br>
+<input type="radio" value="10pm-1am"name="radio">10pm-2am<br>
+</form>
+  </div>
+
+<div id="22April" class="tabcontent">
+  
+<form>
+<input type="radio" value="9am-12pm" name="radio"selected>9am-12pm<br>
+<input type="radio" value="2pm-5pm"name="radio">2pm-5pm<br>
+<input type="radio" value="6pm-9pm"name="radio">6pm-9pm<br>
+<input type="radio" value="10pm-1am"name="radio">10pm-2am<br>
+</form>
+
+</div>
+
+<form action="dbms_seat_selector.html">
+<input type="submit" value="Book the Ticket" name="submit">
+</form>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
+

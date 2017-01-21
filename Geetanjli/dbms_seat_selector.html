@@ -1,0 +1,84 @@
+<html>
+<head>
+<style>
+html{background:url("Download-Blue-Background-Images-HD-Wallpaper.jpg");
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;}
+h3{font-family:Cooper Black;
+font-size:50px}
+
+
+</style>
+</head>
+<body>
+<h3><center>SEAT SELECTOR</center></h3>
+<form action="payment.html">
+<input type="submit" value="Pay your Bill" name="submit">
+</form>
+<?php
+CREATE TABLE seats (
+   rowId varchar(1) not null,
+   columnId int not null,
+   status int,
+   updatedby varchar(10),
+   PRIMARY KEY (rowId,columnId)
+);
+ 
+CREATE TABLE userauth (
+   rowID TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+   commonname VARCHAR(35) NOT NULL,
+   username VARCHAR(8) NOT NULL,
+   pswd VARCHAR(32) NOT NULL,
+   PRIMARY KEY(rowID)
+);
+ function reserveSeats() {
+ 
+    var selectedList = getSelectedList('Reserve Seats');
+ 
+    if (selectedList) {
+        if (confirm('Do you want to reserve selected seat/s ' + selectedList + '?')) {
+            document.forms[0].oldStatusCode.value=0;
+            document.forms[0].newStatusCode.value=1;
+            document.forms[0].action='bookseats.php';
+            document.forms[0].submit();
+        } else {
+            clearSelection();
+        }
+    }
+}
+ 
+function cancelSeats() {
+ 
+    var selectedList = getSelectedList('Cancel Reservation');
+ 
+    if (selectedList) {
+        if (confirm('Do you want to cancel reserved seat/s ' + selectedList + '?')) {
+            document.forms[0].oldStatusCode.value=1;
+            document.forms[0].newStatusCode.value=0;
+            document.forms[0].action='bookseats.php';
+            document.forms[0].submit();
+        } else {
+            clearSelection();
+        }
+    }
+}
+ 
+function confirmSeats() {
+ 
+    var selectedList = getSelectedList('Confirm Reservation');
+ 
+    if (selectedList) {
+        if (confirm('Do you want to confirm reserved seat/s ' + selectedList + '?')) {
+            document.forms[0].oldStatusCode.value=1;
+            document.forms[0].newStatusCode.value=2;
+            document.forms[0].action='bookseats.php';
+            document.forms[0].submit();
+        } else {
+            clearSelection();
+        }
+    }
+}?>
+</body>
+</html>
